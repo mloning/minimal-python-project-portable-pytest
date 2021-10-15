@@ -15,7 +15,7 @@ from sktime.registry._lookup import VALID_ESTIMATOR_TYPES
 from sktime.registry._lookup import _check_estimator_types
 
 
-def configure_all_estimators(root_dir, package_name, ignore_modules=None):
+def configure_get_estimators(root_dir, package_name, ignore_modules=None):
 
     ignore_modules = [] if ignore_modules is None else ignore_modules
 
@@ -24,7 +24,7 @@ def configure_all_estimators(root_dir, package_name, ignore_modules=None):
         exclude_estimators=None,
         return_names=True,
     ):
-        """Get a list of all estimators from sktime.
+        f"""Get a list of all estimators from {package_name}.
 
         This function crawls the module and gets all classes that inherit
         from sktime's and sklearn's base_package classes.
@@ -170,7 +170,7 @@ def configure_all_estimators(root_dir, package_name, ignore_modules=None):
     return get_estimators
 
 
-all_estimators = configure_all_estimators(
+get_estimators = configure_get_estimators(
     root_dir=str(Path(__file__).parent),
     package_name="base_package",
     ignore_modules=None,
