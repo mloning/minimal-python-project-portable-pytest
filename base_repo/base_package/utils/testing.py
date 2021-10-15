@@ -15,16 +15,6 @@ from base_package.registry import get_estimators
 import pandas as pd
 
 
-def get_scitype(estimator):
-    assert isinstance(estimator, BaseEstimator)
-    if isinstance(estimator, BaseForecaster):
-        return "forecaster"
-    elif isinstance(estimator, BaseClassifier):
-        return "classifier"
-    else:
-        raise ValueError()
-
-
 class BaseEstimatorTestCollection:
     """"""
 
